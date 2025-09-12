@@ -1,0 +1,65 @@
+
+.missionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.missionCard {
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.missionsContainer p, .missionsContainer h3, .missionsContainer h4, .missionsContainer button {
+    margin: 1em;
+}
+
+.status-pending {
+    background-color: lightblue
+}
+
+.status-closed {
+    background-color: lightcoral;
+}
+
+
+.applicationsContainer {
+    display: grid;
+    margin-top: 20px;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    border-radius: 1em;
+
+}
+
+.appItem {
+    border-radius: 1em;
+}
+
+.appItem.state-rejected {
+    background-color: red;
+}
+
+.appItem.state-pending {
+    background-color: orange;
+}
+.appItem.state-accepted {
+    background-color: lightgreen;
+}
+.noApplications {
+    color: red;
+    font-weight: bolder;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+.hidden {
+    display: none;
+}
