@@ -3,9 +3,9 @@ const express = require("express");
 const router = express.Router();
 
 const getMissionById = require("../dao/missions.dao").getMissionById;
-const applyToMission = require("../dao/applications").applyToMission;
+const applyToMission = require("../dao/applications.dao").applyToMission;
 const getUserByEmail = require("../dao/users.dao").getUserByEmail;
-const getApplicationsByUserId = require("../dao/applications").getApplicationsByUserId;
+const getApplicationsByUserId = require("../dao/applications.dao").getApplicationsByUserId;
 
 const auth = require("../middleware/auth");
 router.use(auth);
@@ -34,7 +34,7 @@ router.post("/:id", async (req, res) => {
     return res.status(201).json({ message: "application created" });
 });
 
-router.post("/", async (req, res) => {
+router.get("/", async (req, res) => {
     console.log("applications get request received");
     if (req.user.type !== "volunteer") return res.status(403).json({ message: "forbidden" });
     const userId = req.user.userId;

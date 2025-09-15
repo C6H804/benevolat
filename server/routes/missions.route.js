@@ -15,12 +15,12 @@ const getMissions = require("../dao/missions.dao").getMissions;
 const getMissionById = require("../dao/missions.dao").getMissionById;
 const getUserByEmail = require("../dao/users.dao").getUserByEmail;
 const createMission = require("../dao/missions.dao").createMission;
-const getApplicationsByMissionId = require("../dao/applications").getApplicationsByMissionId;
+const getApplicationsByMissionId = require("../dao/applications.dao").getApplicationsByMissionId;
 const getMissionByAssociationId = require("../dao/missions.dao").getMissionByAssociationId;
 
-const acceptApplication = require("../dao/applications").acceptApplication;
-const closeMission = require("../dao/applications").closeMission;
-const refuseApplication = require("../dao/applications").refuseApplication;
+const acceptApplication = require("../dao/applications.dao").acceptApplication;
+const closeMission = require("../dao/applications.dao").closeMission;
+const refuseApplication = require("../dao/applications.dao").refuseApplication;
 
 
 router.use(auth);

@@ -7,7 +7,8 @@ const app = express();
 const port = process.env.PORT;
 
 // setup static files
-app.use(express.static(path.join(__dirname, "../src")));
+// app.use(express.static(path.join(__dirname, "../src")));
+// useless
 
 // setup routes
 app.use(express.json());
