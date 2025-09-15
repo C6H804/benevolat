@@ -34,14 +34,6 @@ router.post("/", async (req, res) => {
 });
 
 
-router.post("/:id", async (req, res) => {
-    console.log("getting mission by id");
-    const missionId = req.params.id;
-    const mission = await getMissionById(missionId);
-    if (mission.valid == false) return res.status(mission.code).json({ message: mission.message });
-    return res.status(200).json({ mission: mission.value });
-});
-
 router.post("/create", async (req, res) => {
     console.log("creating mission post request received");
 
@@ -52,15 +44,23 @@ router.post("/create", async (req, res) => {
     const validation = schema.validate({ name, description, duration });
     if (validation.error) return res.status(400).json({ message: validation.error.details[0].message });
     // get id by email
-
+    
     const userId = req.user.userId;
-
-
+    
+    
     const mission = await createMission(name, description, duration, userId);
     console.log(mission);
     if (mission.valid == false) return res.status(mission.code).json({ message: mission.message });
-
+    
     return res.status(201).json({ message: "mission created", missionId: mission.value });
+});
+
+router.post("/:id", async (req, res) => {
+    console.log("getting mission by id");
+    const missionId = req.params.id;
+    const mission = await getMissionById(missionId);
+    if (mission.valid == false) return res.status(mission.code).json({ message: mission.message });
+    return res.status(200).json({ mission: mission.value });
 });
 
 router.get("/application/:id", async (req, res) => {
